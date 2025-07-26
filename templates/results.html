@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Insights</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f8fc;
+            padding-top: 30px;
+        }
+        .container {
+            max-width: 1000px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .insight-box {
+            background-color: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .card {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mb-4 text-center">✈️ Airline Route Insights</h1>
+
+    <!-- AI Insights -->
+    <div class="insight-box shadow-sm">
+        <strong>AI Insight:</strong><br>
+        {{ insights|safe }}
+    </div>
+
+    <!-- Popular Routes -->
+    {% if popular_routes %}
+        <h3>📊 Most Frequent Routes</h3>
+        <table class="table table-striped table-bordered shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Route</th>
+                    <th>Flight Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for route in popular_routes %}
+                <tr>
+                    <td>{{ route.Route }}</td>
+                    <td>{{ route.Count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <!-- Price Trends -->
+    {% if price_trends %}
+        <h3 class="mt-5">💸 Mock Price Trends (7-day)</h3>
+        {% for trend in price_trends %}
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ trend.route }}</h5>
+                    <div class="row">
+                        {% for i in range(7) %}
+                            <div class="col text-center">
+                                <small><strong>{{ trend.days[i] }}</strong></small><br>
+                                ₹${{ '%.2f' | format(trend.prices[i] / 83) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-secondary">🔙 Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
