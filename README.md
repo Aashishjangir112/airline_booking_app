@@ -1,3 +1,12 @@
+# ✈️ Airline Booking App
+
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Flask](https://img.shields.io/badge/Flask-2.2-lightgrey)
+![Platform](https://img.shields.io/badge/Deployed-PythonAnywhere-green)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+
 # ✈️ Airline Booking Insights App
 
 A Flask web app that fetches real-time airline route data using the AviationStack API, analyzes the most frequent flight routes, simulates weekly mock price trends, and generates AI-based travel insights.  
