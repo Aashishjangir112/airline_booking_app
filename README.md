@@ -1,4 +1,5 @@
 # ✈️ Airline Booking App
+![Maintainer](https://img.shields.io/badge/Maintained%20by-Aashish%20Jangir-blue)
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Flask](https://img.shields.io/badge/Flask-2.2-lightgrey)
